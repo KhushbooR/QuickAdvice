@@ -32,7 +32,7 @@ class SignUpViewModel : ViewModel() {
             val confirmPassword: String = mConfirmPassword.trim()
 
             if (email.isEmpty() || password.isEmpty() || !email.isEmailValid()
-                || name.isEmpty() /*|| dob.isEmpty()*/ || mobileNum.isEmpty()
+                || name.isEmpty() || dob.isEmpty() || mobileNum.isEmpty()
                 || !password.equals(confirmPassword)
             ) {
                 if (name.isEmpty()) {
@@ -45,9 +45,9 @@ class SignUpViewModel : ViewModel() {
                     mListener?.onError(ErrorConstants.ENTER_PASSWORD)
                 } else if (!password.equals(confirmPassword)) {
                     mListener?.onError(ErrorConstants.PASSWORDS_DO_NOT_MATCH)
-                } /*else if (dob.isEmpty()) {
+                } else if (dob.isEmpty()) {
                     mListener?.onError(ErrorConstants.SELECT_DOB)
-                }*/ else if (mobileNum.isEmpty()) {
+                } else if (mobileNum.isEmpty()) {
                     mListener?.onError(ErrorConstants.ENTER_MOBILE_NUM)
                 }
                 return

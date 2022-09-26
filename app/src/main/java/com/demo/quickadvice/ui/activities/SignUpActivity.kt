@@ -1,10 +1,14 @@
 package com.demo.quickadvice.ui.activities
 
+import android.app.DatePickerDialog
 import android.content.res.ColorStateList
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.DatePicker
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
@@ -16,12 +20,16 @@ import com.demo.quickadvice.ui.listeners.APIListener
 import com.demo.quickadvice.ui.uiutils.HelperClass
 import com.demo.quickadvice.ui.viewmodels.SignUpViewModel
 import java.lang.Error
+import java.util.*
 
 class SignUpActivity : BaseActivity(), APIListener {
 
     private lateinit var mBinding: ActivitySignUpBinding
     lateinit var mSignUpViewModel: SignUpViewModel
 
+    lateinit var datePickerDialog: DatePickerDialog
+
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up)
@@ -30,8 +38,22 @@ class SignUpActivity : BaseActivity(), APIListener {
         mSignUpViewModel.mListener = this
         mBinding.signUpViewModel = mSignUpViewModel
 
+        datePickerDialog = DatePickerDialog(this)
+        val cal = Calendar.getInstance()
+        val year = cal.get(Calendar.YEAR)
+        val month = cal.get(Calendar.MONTH)
+        val day = cal.get(Calendar.DAY_OF_MONTH)
+
+        val targetYear = year - 30
+        cal.set(Calendar.YEAR, targetYear)
+        datePickerDialog.datePicker.maxDate = cal.timeInMillis
+
         mBinding.signUpEtDob.setOnClickListener {
-            showToastMessage("show dob dialog")
+            datePickerDialog = DatePickerDialog(this, {
+                    view, year, month, dayOfMonth ->
+                mBinding.signUpEtDob.setText("$dayOfMonth/$month/$year")
+            }, targetYear, month, day)
+            datePickerDialog.show()
         }
 
         mBinding.signUpCategoryCloseIcon.setOnClickListener {
@@ -39,6 +61,10 @@ class SignUpActivity : BaseActivity(), APIListener {
         }
 
         setupCategories()
+    }
+
+    private fun selectDOB() {
+
     }
 
     private fun setupCategories() {
