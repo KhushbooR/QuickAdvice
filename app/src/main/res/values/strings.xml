@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Quick Advice</string>
+
+    <string name="login">Login</string>
+    <string name="username">User Name</string>
+    <string name="password">Password</string>
+    <string name="go">Go</string>
+    <string name="dont_have_account_sign_up">Don\'t have account? Sign Up</string>
+    <string name="register_yourself">Register\nyourself</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="email">Email</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="are_you_registering_as_an_expert">Are you registering as an expert?</string>
+    <string name="sign_up_category_header">You are registering as an expert. Please select the category of your interest.</string>
+    <string name="search">Search</string>
+
+    <string-array name="area_of_interest_categories">
+        <item>Beauty/Makeup</item>
+        <item>Baby care/Parenting</item>
+        <item>Business/Finance</item>
+        <item>Clothing/Lifestyle</item>
+        <item>Cooking/Food</item>
+        <item>Doctorate/Medicinal</item>
+        <item>Electrical Appliances</item>
+        <item>Gaming</item>
+        <item>Home Remedies</item>
+        <item>Machinery</item>
+        <item>Mobiles/Electronics</item>
+        <item>Studies/Career</item>
+        <item>Tarot/Astronomy</item>
+        <item>Technology</item>
+        <item>Travel/Budget Travelling</item>
+        <item>Vehicles</item>
+    </string-array>
+
+    <string-array name="area_of_interest_categories_hints">
+        <item>Beauty</item>
+        <item>Makeup</item>
+        <item>Baby care</item>
+        <item>Parenting</item>
+        <item>Business</item>
+        <item>Finance</item>
+        <item>Clothing</item>
+        <item>Lifestyle</item>
+        <item>Cooking</item>
+        <item>Food</item>
+        <item>Doctorate</item>
+        <item>Medicinal</item>
+        <item>Electrical Appliances</item>
+        <item>Gaming</item>
+        <item>Home Remedies</item>
+        <item>Machinery</item>
+        <item>Mobiles</item>
+        <item>Electronics</item>
+        <item>Studies</item>
+        <item>Career</item>
+        <item>Tarot</item>
+        <item>Astronomy</item>
+        <item>Technology</item>
+        <item>Travel</item>
+        <item>Budget Travelling</item>
+        <item>Vehicles</item>
+    </string-array>
+
+</resources>

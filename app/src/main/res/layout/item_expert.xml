@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="expertData"
+            type="com.demo.quickadvice.ui.models.ExpertData" />
+
+        <variable
+            name="expertClickListener"
+            type="com.demo.quickadvice.ui.listeners.ExpertItemListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:shadowColor="@color/base_color_blue"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/start_guide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="8dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/end_guide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@id/r_expert_btn_connect" />
+
+            <TextView
+                android:id="@+id/r_expert_name"
+                style="@style/expert_details_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name:"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/start_guide"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/r_expert_name_value"
+                style="@style/expert_details_text_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{expertData.name}"
+                app:layout_constraintEnd_toStartOf="@id/end_guide"
+                app:layout_constraintStart_toEndOf="@id/r_expert_name"
+                app:layout_constraintTop_toTopOf="@id/r_expert_name"
+                tools:text="Abc" />
+
+            <TextView
+                android:id="@+id/r_expert_specialized"
+                style="@style/expert_details_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Specialized In:"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/start_guide"
+                app:layout_constraintTop_toBottomOf="@id/r_expert_name" />
+
+            <TextView
+                android:id="@+id/r_expert_specialized_value"
+                style="@style/expert_details_text_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{expertData.specializedIn}"
+                app:layout_constraintEnd_toStartOf="@id/end_guide"
+                app:layout_constraintStart_toEndOf="@id/r_expert_specialized"
+                app:layout_constraintTop_toTopOf="@id/r_expert_specialized"
+                tools:text="Java, C++, Astronomy, Telephony" />
+
+            <ImageView
+                android:id="@+id/r_expert_img"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/end_guide"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/r_expert_btn_connect"
+                style="@style/expert_connect_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/connect_btn_bg"
+                android:clickable="true"
+                android:onClick="@{() -> expertClickListener.onConnectWithExpertClick(expertData)}"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/r_expert_img" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

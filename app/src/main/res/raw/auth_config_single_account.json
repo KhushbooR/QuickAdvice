@@ -1,0 +1,14 @@
+{
+  "client_id": "e8def34b-1015-405e-ac39-d1295bd25dee",
+  "authorization_user_agent": "DEFAULT",
+  "redirect_uri": "msauth://com.uiforetag.quickadvice/2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D",
+  "authorities": [
+    {
+      "type": "AAD",
+      "audience": {
+        "type": "PersonalMicrosoftAccount",
+        "tenant_id": "consumers"
+      }
+    }
+  ]
+}
